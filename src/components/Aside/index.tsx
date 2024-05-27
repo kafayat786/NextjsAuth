@@ -10,7 +10,7 @@ export default function Aside({ menuDisabled, className = "" }: any) {
   const pathName = usePathname();
   const session = useSession();
   let activeMenu = "";
-  let userRole: any = session ? session?.data?.user?.role : {};
+  let userRole: any = session ? session?.data?.user : {};
 
   return (
     <aside
@@ -18,7 +18,7 @@ export default function Aside({ menuDisabled, className = "" }: any) {
       } ${className}`}
     >
       {asideMenus.map((menu, index) => {
-        if (!menu.roles.includes(userRole ?? "none")) {
+        if (!menu.roles.includes(userRole?.role ?? "none")) {
           return null;
         }
 
