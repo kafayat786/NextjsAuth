@@ -20,7 +20,7 @@ const ProductDataTable = ({ products }: any) => {
       <img
         src={`${product.thumbnail}`}
         alt={product.image}
-        style={{ maxWidth: "100px" }}
+        style={{ maxWidth: "70px" }}
         className="w-2rem shadow-2 border-round"
       />
     );

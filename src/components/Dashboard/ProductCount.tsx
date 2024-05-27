@@ -19,6 +19,7 @@ const ProductCount = ({ categoryCounts }: any) => {
             "rgba(54, 162, 235, 0.2)",
             "rgba(153, 102, 255, 0.2)",
           ],
+
           borderColor: [
             "rgb(255, 159, 64)",
             "rgb(75, 192, 192)",

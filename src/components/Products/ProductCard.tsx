@@ -10,8 +10,12 @@ const ProductCard = ({ product }: any) => {
           style={{ maxWidth: "100%" }}
           className="shadow-2 border-round"
         />
-        <div className="font-bold text-xl mb-2">{product.name}</div>
-        <p className="text-gray-700 text-base">Price: ${product.price}</p>
+        <div className="font-bold text-xl mb-2 text-center">
+          {product.title}
+        </div>
+        <p className="text-gray-700 font-bold text-base text-center">
+          Price: ${product.price}
+        </p>
         {/* Add other product details as needed */}
       </div>
     </div>

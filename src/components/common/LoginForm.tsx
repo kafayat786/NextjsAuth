@@ -49,7 +49,7 @@ const LoginForm = () => {
         toastMessage("error", "Invalid Credentials");
       } else {
         toastMessage("success", "Login Sccucessful");
-        router.push("/");
+        window.location.href = "/";
       }
     },
   });

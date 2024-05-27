@@ -41,10 +41,9 @@ const AllProducts = () => {
   return (
     <div className="-fluid py-6">
       <h1 className="text-3xl font-bold mb-6 text-center">Product List</h1>
-      <div className="grid gap-2 grid-cols-2 md:grid-cols-4 bg-white p-3 rounded-md">
+      <div className="grid gap-3 grid-cols-2 md:grid-cols-4 bg-white p-3 rounded-md">
         {products?.map((product, i) => (
           <div key={i}>
-            {" "}
             <ProductCard product={product} />{" "}
           </div>
         ))}

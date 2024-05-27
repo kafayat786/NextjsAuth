@@ -62,19 +62,20 @@ const ProductList = () => {
 
   return (
     <div className="-fluid py-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Product List</h1>
-      <div className="grid gap-2 grid-cols-2 md:grid-cols-4 bg-white p-3 rounded-md">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-4 bg-white p-3 rounded-md">
         {categoryCounts.map((category, i) => (
           <div key={i} className="bg-[#fafafc] p-5 text-center rounded-lg">
-            <h2 className="text-xl font-bold mb-2">{category.label}</h2>
+            <h1 className="font-bold my-3 capitalize">{category.label}</h1>
             <p className="text-lg">{category.count}</p>
           </div>
         ))}
       </div>
-      <div className="bg-white p-1 rounded-md">
+      <div className="bg-white p-1 rounded-md mt-4 p-5">
         <div>
           <ProductCount categoryCounts={categoryCounts} />
         </div>
+      </div>
+      <div className="bg-white p-1 rounded-md mt-5 p-5">
         <div className="mt-5">
           <ProductDataTable products={products} />
         </div>

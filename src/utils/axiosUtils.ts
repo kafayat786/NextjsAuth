@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // Adjust the base URL if necessary
-const API_BASE_URL = 'https://dummyjson.com/products'; // Adjust the base URL if necessary
+const API_BASE_URL = 'https://dummyjson.com'; // Adjust the base URL if necessary
 
 const sendRequest = async (method:any, endpoint :any, data = null) => {
   try {

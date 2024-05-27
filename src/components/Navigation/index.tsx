@@ -40,7 +40,9 @@ export default function Navigation({
   ];
 
   return (
-    <div className={`flex items-center justify-between ${className}`}>
+    <div
+      className={`flex items-center drop-shadow-md justify-between topbar bg-white ${className}`}
+    >
       <div className="flex space-x-4 items-center p-4">
         <i
           onClick={() => setShowMenu(!showMenu)}
@@ -64,7 +66,7 @@ export default function Navigation({
           />
           {/* <img className="" src="" alt="profile-img" /> */}
           <div>
-            <p style={{ fontSize: "15px" }}>Kafayat Khan</p>
+            <p style={{ fontSize: "15px" }}>Kafayat Ullah</p>
             <p style={{ fontSize: "13px" }}>MERN Stack Developer</p>
           </div>
         </div>
@@ -80,7 +82,7 @@ export default function Navigation({
               className="rounded-md border-l-4 bg-slate-100 my-2 px-4 py-3"
               style={{ borderLeftColor: colors[i] }}
             >
-              <h3 className="font-semibold">New Task Assigned</h3>
+              <h3 className="font-semibold">New Notification</h3>
               <p style={{ fontSize: "13px" }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt.

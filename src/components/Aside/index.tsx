@@ -4,12 +4,13 @@ import AsideItem from "./AsideItem";
 import { usePathname } from "next/navigation";
 import asideMenus from "@/utils/asideMenus";
 import { useSession } from "next-auth/react";
-
+import { Button } from "primereact/button";
+import { signOut } from "next-auth/react";
 export default function Aside({ menuDisabled, className = "" }: any) {
   const pathName = usePathname();
   const session = useSession();
   let activeMenu = "";
-  let userRole = session ? session?.data?.user?.role : {};
+  let userRole: any = session ? session?.data?.user?.role : {};
 
   return (
     <aside
@@ -41,6 +42,14 @@ export default function Aside({ menuDisabled, className = "" }: any) {
           />
         );
       })}
+      <Button
+        onClick={() => {
+          signOut();
+        }}
+        className="py-2 mt-2 me-2 dash-signout"
+      >
+        Sign Out <i className="pi pi-sign-out ms-3" style={{ color: "#fff" }} />
+      </Button>
     </aside>
   );
 }

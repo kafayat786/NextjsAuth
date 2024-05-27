@@ -23,8 +23,7 @@ export default function LoginPage() {
         >
           <div className="w-[400px] ">
             <div className="text-center">
-              <h1>Welcome Back</h1>
-              <p>LogIn to your Activity</p>
+              <h1 className="font-bold">Log In</h1>
             </div>
             <div>
               <LoginForm />

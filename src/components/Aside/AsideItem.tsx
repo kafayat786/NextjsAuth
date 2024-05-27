@@ -25,7 +25,7 @@ export default function AsideItem({
       variant="light"
       id={active && "active-menu"}
       className={` w-full flex aside-menus bg-transparent border-0 items-center justify-start p-2 pl-0 mb-1 ${
-        active ? "text-primary-500" : "text-parent"
+        active ? "text-primary-500" : "text-white"
       } ${className}`}
     >
       {!simple && <div className={`h-full w-1 rounded bg-primary-500`} />}
