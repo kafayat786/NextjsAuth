@@ -6,9 +6,6 @@ export default function Dashboard() {
       <div className="card mb-3">
         <h1>Wellcome to Dashboard</h1>
       </div>
-      <div className="grid gap-2 grid-cols-2 md:grid-cols-4   bg-white p-2">
-        {/* <ProductList /> */}
-      </div>
 
       <div className="mt-5">
         <ProductList />

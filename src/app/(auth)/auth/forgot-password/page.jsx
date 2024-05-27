@@ -54,7 +54,6 @@ export default function ForgetPasswordPage() {
             radius="full"
             color="primary"
             isDisabled
-            // isDisabled={loading}
           >
             Send Email
           </Button>
