@@ -1,15 +1,15 @@
 "use client";
 
-import { signOut } from "next-auth/react";
-import { Button } from "primereact/button";
-import { Tooltip } from "primereact/tooltip";
-import { useEffect } from "react";
+import { Avatar } from "primereact/avatar";
+import { Sidebar } from "primereact/sidebar";
+import { useEffect, useState } from "react";
 
 export default function Navigation({
   showMenu,
   setShowMenu,
   className = "",
 }: any) {
+  const [visible, setVisible] = useState<any>(false);
   function checkWindowWidth() {
     var windowWidth = window.innerWidth;
     if (windowWidth > 1024) {
@@ -23,6 +23,21 @@ export default function Navigation({
     // Add an event listener to check the window width when the window is resized
     window.addEventListener("resize", checkWindowWidth);
   }, []);
+  const colors = [
+    "Red",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Purple",
+    "Orange",
+    "Pink",
+    "Brown",
+    "Black",
+    "White",
+    "Gray",
+    "Cyan",
+    "Magenta",
+  ];
 
   return (
     <div className={`flex items-center justify-between ${className}`}>
@@ -36,17 +51,43 @@ export default function Navigation({
         <div className="font-bold text-lg ">Logo</div>
       </div>
       <div className="flex items-center">
-        <Button
-          onClick={() => {
-            signOut();
-          }}
-          // isIconOnly
-          // startContent={
-          //   <i className="pi-sign-in" style={{ fontSize: "2rem" }}></i>
-          // }
+        <p onClick={() => setVisible(true)} className="cursor-pointer mx-2">
+          <i className="pi pi-bell me-1" style={{ color: "#666" }} />{" "}
+          Notifications
+        </p>
+        <div className="flex justify-center">
+          <Avatar
+            image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
+            className="d-block mr-2"
+            size="medium"
+            shape="circle"
+          />
+          {/* <img className="" src="" alt="profile-img" /> */}
+          <div>
+            <p style={{ fontSize: "15px" }}>Kafayat Khan</p>
+            <p style={{ fontSize: "13px" }}>MERN Stack Developer</p>
+          </div>
+        </div>
+        <Sidebar
+          position="right"
+          visible={visible}
+          onHide={() => setVisible(false)}
         >
-          Sign Out
-        </Button>
+          <h2>Notifications</h2>
+          {[1, 2, 3, 4, 5, 6]?.map((task, i) => (
+            <div
+              key={i}
+              className="rounded-md border-l-4 bg-slate-100 my-2 px-4 py-3"
+              style={{ borderLeftColor: colors[i] }}
+            >
+              <h3 className="font-semibold">New Task Assigned</h3>
+              <p style={{ fontSize: "13px" }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </p>
+            </div>
+          ))}
+        </Sidebar>
       </div>
     </div>
   );

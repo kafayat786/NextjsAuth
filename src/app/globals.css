@@ -22,15 +22,6 @@
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
 div#password {
   width: 100%;
   margin-bottom: 10px;
@@ -38,4 +29,15 @@ div#password {
 #active-menu {
   background-color: #fff;
   color: #000;
+}
+button.dash-signout {
+  position: absolute;
+  bottom: 55px;
+  left: -1px;
+  width: 100%;
+  text-align: center;
+  border-top: 2px solid;
+  border-radius: 0px;
+  background-color: #28293d;
+  color: #fff;
 }

@@ -6,21 +6,15 @@ const asideMenus = [
     roles: ["admin", "user"],
   },
   {
-    // TbIcon: IconUsers,
+    // TbIcon: IconManagement,
     label: "Management",
     href: "/management",
     roles: ["user"],
   },
   {
-    // TbIcon: IconUsers,
-    label: "Reports",
-    href: "/reports",
-    roles: ["admin"],
-  },
-  {
-    // TbIcon: IconUsers,
-    label: "Profile",
-    href: "/profile",
+    // TbIcon: IconProducts,
+    label: "Products",
+    href: "/products",
     roles: ["admin"],
   },
 ];

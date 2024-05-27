@@ -12,13 +12,21 @@ import { useRouter } from "next/navigation";
 const LoginForm = () => {
   const toast = useRef(null);
   const router = useRouter();
-  const toastMessage = (status, msg) => {
+
+  type ToastSeverity = "success" | "info" | "warn" | "error" | "custom";
+  interface ToastMessage {
+    severity: ToastSeverity;
+    summary: string;
+    detail: string;
+  }
+  const toastMessage = (status: ToastSeverity, msg: string) => {
     toast.current?.show({
       severity: status,
       summary: status,
       detail: msg,
-    });
+    } as ToastMessage);
   };
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -30,18 +38,18 @@ const LoginForm = () => {
         .min(8, "Password must be at least 8 characters")
         .required("Password is Required"),
     }),
-    onSubmit: async (values, e) => {
+    onSubmit: async (values) => {
       const result = await signIn("credentials", {
         redirect: false,
         email: values.email,
         password: values.password,
       });
       router.push("/");
-      if (result.error) {
+      if (result?.error) {
         toastMessage("error", "Invalid Credentials");
       } else {
         toastMessage("success", "Login Sccucessful");
-        window.location.href = "/";
+        router.push("/");
       }
     },
   });
@@ -95,7 +103,7 @@ const LoginForm = () => {
         </div>
         <Button type="submit" label="Submit" className="mt-2" />
       </form>
-      <Toast className="flex-col" ref={toast} />
+      <Toast ref={toast} />
     </div>
   );
 };
