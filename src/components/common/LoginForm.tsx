@@ -104,7 +104,7 @@ const LoginForm = () => {
             ) : null}
           </p>
         </div>
-        <Button type="submit" label="Submit" className="mt-2" />
+        <Button type="submit" label="Log In" className="mt-2" />
       </form>
       <Toast ref={toast} />
     </div>
