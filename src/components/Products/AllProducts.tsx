@@ -9,6 +9,7 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const toast = useRef(null);
+  const toastPrefix: any = toast.current;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -17,7 +18,7 @@ const AllProducts = () => {
         setProducts(data.products.slice(0, 100));
       } catch (err) {
         console.error("Error fetching products:", err);
-        toast.current?.show({
+        toastPrefix.show({
           severity: "error",
           summary: "error",
           detail: "Error fetching products:",

@@ -30,6 +30,7 @@ const ProductList = () => {
   };
 
   const categoryCounts = countProductsByCategory(products);
+  const toastPrefix: any = toast.current;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,7 +40,7 @@ const ProductList = () => {
         countProductsByCategory(data.products); // Assuming the response structure has a `products` key
       } catch (err) {
         console.error("Error fetching products:", err);
-        toast.current?.show({
+        toastPrefix.show({
           severity: "error",
           summary: "error",
           detail: "Error fetching products:",

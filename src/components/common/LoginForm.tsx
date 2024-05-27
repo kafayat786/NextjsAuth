@@ -19,8 +19,9 @@ const LoginForm = () => {
     summary: string;
     detail: string;
   }
+  const toastPrefix: any = toast.current;
   const toastMessage = (status: ToastSeverity, msg: string) => {
-    toast.current?.show({
+    toastPrefix.show({
       severity: status,
       summary: status,
       detail: msg,

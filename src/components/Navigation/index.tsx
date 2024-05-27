@@ -61,8 +61,6 @@ export default function Navigation({
           <Avatar
             image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png"
             className="d-block mr-2"
-            size="medium"
-            shape="circle"
           />
           {/* <img className="" src="" alt="profile-img" /> */}
           <div>
