@@ -10,7 +10,8 @@ export default function Aside({ menuDisabled, className = "" }: any) {
   const pathName = usePathname();
   const session = useSession();
   let activeMenu = "";
-  let userRole: any = session ? session?.data?.user : {};
+  const sessionRole: any = session?.data?.user;
+  let userRole: any = session ? sessionRole?.role : {};
 
   return (
     <aside
@@ -18,10 +19,11 @@ export default function Aside({ menuDisabled, className = "" }: any) {
       } ${className}`}
     >
       {asideMenus.map((menu, index) => {
-        if (!menu.roles.includes(userRole?.role ?? "none")) {
-          return null;
+        if (!sessionRole?.email) {
+          if (!menu.roles.includes(userRole ?? "none")) {
+            return null;
+          }
         }
-
         if (pathName == "/") {
           activeMenu = "Dashboard";
         } else if (

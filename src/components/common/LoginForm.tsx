@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Message } from "primereact/message";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 const LoginForm = () => {
   const toast = useRef(null);
   const router = useRouter();
+  const session = useSession();
 
   type ToastSeverity = "success" | "info" | "warn" | "error" | "custom";
   interface ToastMessage {
@@ -56,6 +57,23 @@ const LoginForm = () => {
       }
     },
   });
+
+  const googleLogin = async () => {
+    const result = await signIn("google", {
+      redirect: false,
+    });
+    console.log(result, session, "csc");
+
+    router.push("/");
+    if (result?.error) {
+      toastMessage("error", "Invalid Credentials");
+    } else {
+      toastMessage("success", "Login Sccucessful");
+      window.location.href = "/";
+    }
+  };
+
+  console.log(session, "csc");
 
   return (
     <div className="p-fluid">
@@ -104,8 +122,20 @@ const LoginForm = () => {
             ) : null}
           </p>
         </div>
-        <Button type="submit" label="Log In" className="mt-2" />
+        <Button type="submit" label="Log In" className="my-2" />
       </form>
+      <Button
+        className="text-center text-black justify-center"
+        style={{ backgroundColor: "#f7f7f7", borderColor: "#222" }}
+        onClick={googleLogin}
+      >
+        <i
+          className="pi pi-google me-2"
+          style={{ color: "#444", fontSize: "1rem" }}
+        />
+        Google Log In
+      </Button>
+
       <Toast ref={toast} />
     </div>
   );
