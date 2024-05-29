@@ -5,12 +5,13 @@ import { ProgressSpinner } from "primereact/progressspinner";
 import sendRequest from "@/utils/axiosUtils";
 import ProductDataTable from "./ProductDataTable";
 import ProductCount from "./ProductCount";
+import { useSession } from "next-auth/react";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const toast = useRef(null);
-
+  const sesssionData: any = useSession();
   const countProductsByCategory = (products: any) => {
     const first100Products = products.slice(0, 100);
     const categoryCounts = first100Products.reduce((acc: any, product: any) => {
@@ -28,6 +29,8 @@ const ProductList = () => {
     }));
     return result;
   };
+
+  console.log(sesssionData, "userData");
 
   const categoryCounts = countProductsByCategory(products);
   const toastPrefix: any = toast.current;
@@ -63,6 +66,9 @@ const ProductList = () => {
 
   return (
     <div className="-fluid py-6">
+      {sesssionData && (
+        <p className="mb-2 font-bold">{sesssionData?.data?.user?.name} </p>
+      )}
       <div className="grid gap-4 grid-cols-2 md:grid-cols-4 bg-white p-3 rounded-md">
         {categoryCounts.map((category, i) => (
           <div key={i} className="bg-[#fafafc] p-5 text-center rounded-lg">

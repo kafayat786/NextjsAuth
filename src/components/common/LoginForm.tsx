@@ -62,7 +62,6 @@ const LoginForm = () => {
     const result = await signIn("google", {
       redirect: false,
     });
-    console.log(result, session, "csc");
 
     router.push("/");
     if (result?.error) {
@@ -73,11 +72,9 @@ const LoginForm = () => {
     }
   };
 
-  console.log(session, "csc");
-
   return (
     <div className="p-fluid">
-      <form onSubmit={formik.handleSubmit} className="login-form mt-5">
+      {/* <form onSubmit={formik.handleSubmit} className="login-form mt-5">
         <div className="p-field">
           <InputText
             id="email"
@@ -123,14 +120,18 @@ const LoginForm = () => {
           </p>
         </div>
         <Button type="submit" label="Log In" className="my-2" />
-      </form>
+      </form> */}
       <Button
-        className="text-center text-black justify-center"
-        style={{ backgroundColor: "#f7f7f7", borderColor: "#222" }}
+        className="text-center  mt-5 justify-center"
+        style={{
+          backgroundColor: "#f7f7f7",
+          color: "#444",
+          borderColor: "#222",
+        }}
         onClick={googleLogin}
       >
         <i
-          className="pi pi-google me-2"
+          className="pi pi-google me-2 "
           style={{ color: "#444", fontSize: "1rem" }}
         />
         Google Log In
