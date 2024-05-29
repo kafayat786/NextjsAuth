@@ -67,7 +67,7 @@ const LoginForm = () => {
     if (result?.error) {
       toastMessage("error", "Invalid Credentials");
     } else {
-      toastMessage("success", "Login Sccucessful");
+      // toastMessage("success", "Login Sccucessful");
       window.location.href = "/";
     }
   };
